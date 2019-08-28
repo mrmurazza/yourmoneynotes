@@ -1,0 +1,15 @@
+build/src/play/binary/routesScalaSources/controllers/ReverseRoutes.scala
+build/src/play/binary/routesScalaSources/controllers/routes.java
+build/src/play/binary/routesScalaSources/controllers/javascript/JavaScriptReverseRoutes.scala
+build/src/play/binary/routesScalaSources/router/Routes.scala
+build/src/play/binary/routesScalaSources/router/RoutesPrefix.scala
+.gradle/5.6/gc.properties
+.gradle/5.6/executionHistory/executionHistory.bin
+.gradle/5.6/executionHistory/executionHistory.lock
+.gradle/5.6/fileChanges/last-build.bin
+.gradle/5.6/fileHashes/fileHashes.bin
+.gradle/5.6/fileHashes/fileHashes.lock
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/buildOutputCleanup/cache.properties
+.gradle/buildOutputCleanup/outputFiles.bin
+.gradle/vcs-1/gc.properties
