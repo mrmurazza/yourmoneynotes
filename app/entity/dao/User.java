@@ -1,7 +1,9 @@
 package entity.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
+import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,8 +30,11 @@ public class User {
     private String email;
 
     @Column(name="password")
-    @JsonProperty("password")
     private String password;
+
+    @Column(name="access_token")
+    @JsonIgnore
+    private String accessToken;
 
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
@@ -49,6 +54,7 @@ public class User {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.accessToken = UUID.randomUUID().toString();
     }
 
     public long getId() {
@@ -73,6 +79,10 @@ public class User {
 
     public Date getUpdatedAt() {
         return updatedAt;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
     }
 
     @JsonProperty("created_at")

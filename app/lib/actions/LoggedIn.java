@@ -6,7 +6,7 @@ import play.mvc.Result;
 import play.mvc.Security;
 import entity.response.BaseJSONResponse;
 import entity.dao.User;
-import services.user.UserManager;
+import services.user.UserManagerImpl;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -14,16 +14,16 @@ import java.util.Optional;
 
 @Singleton
 public class LoggedIn extends Security.Authenticator {
-    private UserManager userManager;
+    private UserManagerImpl userManagerImpl;
 
     @Inject
-    public LoggedIn(UserManager userManager){
-        this.userManager = userManager;
+    public LoggedIn(UserManagerImpl userManagerImpl){
+        this.userManagerImpl = userManagerImpl;
     }
 
     @Override
     public String getUsername(Http.Context ctx) {
-        Optional<User> userOpt = userManager.getCurrentUser();
+        Optional<User> userOpt = userManagerImpl.getCurrentUser();
 
         return userOpt.map(User::getName).orElse(null);
 

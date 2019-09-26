@@ -28,6 +28,18 @@ public class UserSQL implements UserDAO {
     }
 
     @Override
+    public Optional<User> getByAccessToken(String accessToken){
+        Query q = jpaApi.em().createQuery("select user from User user where user.accessToken = :accessToken");
+        q.setParameter("accessToken", accessToken);
+
+        try {
+            return Optional.of((User) q.getSingleResult());
+        } catch (NoResultException e) {
+            return Optional.empty();
+        }
+    }
+
+    @Override
     public Optional<User> getByEmail(String email){
         Query q = jpaApi.em().createQuery("select user from User user where user.email = :email");
         q.setParameter("email", email);
