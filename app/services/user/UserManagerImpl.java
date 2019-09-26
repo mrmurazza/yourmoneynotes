@@ -1,11 +1,11 @@
 package services.user;
 
-import dao.api.UserDAO;
-import entity.dao.User;
-import entity.exceptions.ListException;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
-import entity.request.UserSignupRequest;
+
+import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -13,9 +13,11 @@ import javax.naming.NamingException;
 import javax.naming.directory.Attribute;
 import javax.naming.directory.Attributes;
 import javax.naming.directory.InitialDirContext;
-import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import dao.api.UserDAO;
+import entity.dao.User;
+import entity.exceptions.ListException;
+import entity.request.UserSignupRequest;
 import services.api.UserManager;
 
 import static play.mvc.Controller.request;
@@ -29,6 +31,7 @@ public class UserManagerImpl implements UserManager {
         this.userDAO = userDAO;
     }
 
+    @Override
     public Optional<User> getCurrentUser(){
         Optional<String> accessTokenOpt = request().getHeaders().get("Authorization");
 
@@ -38,12 +41,13 @@ public class UserManagerImpl implements UserManager {
         return userDAO.getByAccessToken(accessTokenOpt.get());
     }
 
-
+    @Override
     public Optional<User> login(String email, String password){
         String digestedPassword = DigestUtils.sha256Hex(password);
         return userDAO.getByEmailAndPassword(email, digestedPassword);
     }
 
+    @Override
     public User signup(UserSignupRequest request) throws ListException {
         validateSignupRequest(request);
 

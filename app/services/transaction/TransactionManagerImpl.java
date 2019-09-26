@@ -1,15 +1,9 @@
 package services.transaction;
 
-import dao.api.TransactionDAO;
-import entity.dao.Transaction;
-import entity.exceptions.ListException;
-import org.apache.commons.lang3.StringUtils;
-import entity.request.ProductRequest;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.util.List;
-import java.util.Optional;
+
+import dao.api.TransactionDAO;
 import services.api.TransactionManager;
 
 @Singleton
