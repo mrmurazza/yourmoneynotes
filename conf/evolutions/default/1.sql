@@ -4,6 +4,8 @@ CREATE TABLE `users` (
   `name` varchar(20) NOT NULL DEFAULT '',
   `email` varchar(20) NOT NULL DEFAULT '',
   `password` varchar(100) NOT NULL DEFAULT '',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -26,6 +28,8 @@ CREATE TABLE `categories` (
   `parent_id` bigint(20) DEFAULT NULL,
   `description` text,
   `icon` varchar(20) NOT NULL DEFAULT 'DEFAULT_ICON',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `name` (`name`),
   KEY `parent_id` (`parent_id`)
@@ -38,6 +42,8 @@ CREATE TABLE `budgets` (
   `amount` bigint(20) NOT NULL DEFAULT '0',
   `start_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `end_date` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `name` (`name`),
   KEY `type` (`type`)
@@ -51,7 +57,6 @@ CREATE TABLE `transactions` (
   `category_type` enum('INCOME','EXPENSE','LEND','BORROW','COLLECTING','REPAYMENT') DEFAULT NULL,
   `amount` bigint(20) NOT NULL,
   `description` text,
-  `transaction_ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `debt_target` varchar(20) DEFAULT NULL,

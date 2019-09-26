@@ -5,7 +5,7 @@ import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.Security;
 import entity.response.BaseJSONResponse;
-import services.user.User;
+import entity.dao.User;
 import services.user.UserManager;
 
 import javax.inject.Inject;
