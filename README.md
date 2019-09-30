@@ -45,9 +45,9 @@ Things that not included nor explained in this Structure are stuffs which were g
 
 Basically, this project is separated into 4 main components and 1 extra components: 
 1. Controller : responsible on preparing the inputs and serving the outputs and the one to call the business logic code.
-2. Manager : responsible on handling the main core of the business logic. (ex: `UserManager.java, ProductManager.java, etc`)
-3. Model : responsible on containing object & entity binding. (ex: `User.java, Product.java, etc`)
-4. DAO : responsible on containing DB query. (ex: `UserDAO.java, ProductDAO.java, etc`)
+2. Manager : responsible on handling the main core of the business logic. (ex: `UserManager.java, TransactionManager.java, etc`)
+3. Model : responsible on containing object & entity binding. (ex: `User.java, Transaction.java, etc`)
+4. DAO : responsible on containing DB query. (ex: `UserDAO.java, TransactionDAO.java, etc`)
 5. (extra) Request: object that represents the data from the requests for each API.
 
 On this project, the code are separated by its entity. So, each entity will have a controller, manager, DAO, and the model.

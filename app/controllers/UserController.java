@@ -20,7 +20,7 @@ import static entity.request.UserSignupRequest.initFromFormRequest;
 import static entity.response.BaseJSONResponse.initErrorResponse;
 import static entity.response.BaseJSONResponse.initSingleErrorResponse;
 import static entity.response.BaseJSONResponse.initSuccessResponse;
-import static lib.ResponseUtil.createSingleEntryMap;
+import static utils.ResponseUtil.createSingleEntryMap;
 
 @Singleton
 public class UserController extends Controller {

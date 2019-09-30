@@ -1,6 +1,6 @@
 
 GET     /health-check       controllers.Application.healthCheck
 
-POST    /auth/login         controllers.Application.login
-POST    /auth/signup        controllers.Application.signupPost
+POST    /auth/login         controllers.UserController.login
+POST    /auth/signup        controllers.UserController.signupPost
 

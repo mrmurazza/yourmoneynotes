@@ -1,17 +1,19 @@
 package controllers;
 
+import java.util.Map;
 import javax.inject.Singleton;
 
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-import static lib.ResponseUtil.createSingleEntryMap;
+import static utils.ResponseUtil.createSingleEntryMap;
 
 @Singleton
 public class Application extends Controller {
 
     public Result healthCheck() {
-        return ok(Json.toJson(createSingleEntryMap("message", "Hello there")));
+        Map<String, String> response = createSingleEntryMap("message", "Hello there asd");
+        return ok(Json.toJson(response));
     }
 }
